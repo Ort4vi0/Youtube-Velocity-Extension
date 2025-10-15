@@ -119,7 +119,7 @@ A extensão detecta automaticamente o idioma do seu navegador e exibe o tooltip 
 ### Estrutura do Projeto
 
 ```
-pepino/
+YoutubeVelocity/
 ├── manifest.json    # Configurações da extensão
 ├── content.js       # Script principal
 ├── styles.css       # Estilos do botão e tooltip

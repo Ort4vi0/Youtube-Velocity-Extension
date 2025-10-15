@@ -1,0 +1,49 @@
+#ytp-speed-scroll-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    padding: 0 12px !important;
+    position: relative !important;
+    user-select: none;
+}
+#ytp-speed-scroll-display {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+    font-family: "YouTube Noto", "Roboto", "Arial", sans-serif;
+}
+#ytp-speed-scroll-tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: none;
+    z-index: 2147483000;
+    opacity: 0;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    will-change: transform, opacity;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+#ytp-speed-scroll-tooltip .ytp-tooltip-text {
+    background: rgba(0, 0, 0, 0.349);
+    backdrop-filter: blur(10px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.8);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: "YouTube Noto", "Roboto", "Arial", sans-serif;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+#ytp-speed-scroll-tooltip.visible {
+    opacity: 1;
+    transform: translateX(-50%);
+}
