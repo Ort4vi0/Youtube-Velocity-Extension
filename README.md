@@ -1,3 +1,7 @@
+# README em diferentes idiomas
+- [Português](README.pt.md)
+- [Español](README.es.md)
+
 # 🎬 YouTube Speed Control
 
 Chrome/Edge extension that adds a button to the YouTube player to control video speed using the mouse scroll.
