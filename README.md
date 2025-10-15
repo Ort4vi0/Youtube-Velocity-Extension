@@ -1,4 +1,4 @@
-# README em diferentes idiomas
+# README in others langs
 - [Português](README.pt.md)
 - [Español](README.es.md)
 
