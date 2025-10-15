@@ -119,11 +119,17 @@ A extensão detecta automaticamente o idioma do seu navegador e exibe o tooltip 
 ### Estrutura do Projeto
 
 ```
-YoutubeVelocity/
-├── manifest.json    # Configurações da extensão
-├── content.js       # Script principal
-├── styles.css       # Estilos do botão e tooltip
-└── README.md        # Este arquivo
+Youtube-Velocity-Extension/
+├── manifest.json           # Configurações da extensão
+├── README.md               # README principal (Inglês)
+├── src/                    # Arquivos fonte
+│   ├── content.js          # Script principal
+│   ├── styles.css          # Estilos do botão e tooltip
+│   ├── icon48.png          # Ícone da extensão 48x48
+│   └── icon128.png         # Ícone da extensão 128x128
+└── docs/                   # Documentação
+    ├── README.pt.md        # README em Português
+    └── README.es.md        # README em Espanhol
 ```
 
 ### Tecnologias Utilizadas

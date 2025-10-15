@@ -9,12 +9,12 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/watch*"],
-      "js": ["content.js"],
-      "css": ["styles.css"]
+      "js": ["src/content.js"],
+      "css": ["src/styles.css"]
     }
   ],
   "icons": {
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "48": "src/icon48.png",
+    "128": "src/icon128.png"
   }
 }

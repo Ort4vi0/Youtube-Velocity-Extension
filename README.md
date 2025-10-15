@@ -1,6 +1,6 @@
-# README in others langs
-- [Português](README.pt.md)
-- [Español](README.es.md)
+# README in other languages
+- [Português](docs/README.pt.md)
+- [Español](docs/README.es.md)
 
 # 🎬 YouTube Speed Control
 
@@ -123,11 +123,17 @@ The extension detects your browser language and displays the tooltip in the corr
 ### Project Structure
 
 ```
-YoutubeVelocity/
-├── manifest.json    # Extension configuration
-├── content.js       # Main script
-├── styles.css       # Button and tooltip styles
-└── README.md        # Portuguese README
+Youtube-Velocity-Extension/
+├── manifest.json           # Extension configuration
+├── README.md               # Main README (English)
+├── src/                    # Source files
+│   ├── content.js          # Main content script
+│   ├── styles.css          # Button and tooltip styles
+│   ├── icon48.png          # Extension icon 48x48
+│   └── icon128.png         # Extension icon 128x128
+└── docs/                   # Documentation
+    ├── README.pt.md        # Portuguese README
+    └── README.es.md        # Spanish README
 ```
 
 ### Technologies Used
