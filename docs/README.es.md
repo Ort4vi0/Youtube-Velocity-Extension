@@ -1,3 +1,5 @@
+![Example Image](https://i.imgur.com/1zPxQVt.png)
+
 # 🎬 Control de Velocidad para YouTube
 
 Extensión para Chrome/Edge que añade un botón al reproductor de YouTube para controlar la velocidad del vídeo usando la rueda del ratón.
