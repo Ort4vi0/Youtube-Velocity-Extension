@@ -1,3 +1,5 @@
+![Example Image](https://i.imgur.com/1zPxQVt.png)
+
 # README in other languages
 - [Português](docs/README.pt.md)
 - [Español](docs/README.es.md)
