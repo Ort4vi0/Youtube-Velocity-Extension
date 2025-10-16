@@ -1,3 +1,6 @@
+let buttonAttempts = 0;
+const MAX_BUTTON_ATTEMPTS = 5;
+
 function createSpeedButton() {
     if (document.getElementById('ytp-speed-scroll-button')) {
         return;
@@ -44,6 +47,25 @@ function createSpeedButton() {
     speedButton.appendChild(speedDisplay);
 
     rightControls.insertBefore(speedButton, rightControls.firstChild);
+
+    // Verificar se o botão realmente apareceu no DOM
+    setTimeout(() => {
+        const buttonCheck = document.getElementById('ytp-speed-scroll-button');
+        if (!buttonCheck || !buttonCheck.offsetParent) {
+            buttonAttempts++;
+            if (buttonAttempts < MAX_BUTTON_ATTEMPTS) {
+                console.warn(`YouTube Velocity: Botão não apareceu corretamente, tentando novamente... (Tentativa ${buttonAttempts}/${MAX_BUTTON_ATTEMPTS})`);
+                speedButton.remove();
+                setTimeout(() => createSpeedButton(), 500);
+            } else {
+                console.error('YouTube Velocity: Falha ao criar o botão após múltiplas tentativas.');
+            }
+            return;
+        } else {
+            buttonAttempts = 0; // Reset contador em caso de sucesso
+            console.log('YouTube Velocity: Botão criado com sucesso!');
+        }
+    }, 100);
 
     let savedSpeed = video.playbackRate;
     let lastSpeed = video.playbackRate;
@@ -143,12 +165,59 @@ function createSpeedButton() {
     speedButton.removeAttribute('title');
 }
 
+let debounceTimer = null;
 const observer = new MutationObserver(() => {
     const playerControls = document.querySelector('.ytp-right-controls');
-    if (playerControls) createSpeedButton();
+    if (playerControls) {
+        // Adiciona um debounce para evitar múltiplas chamadas e dar tempo ao YouTube carregar
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            createSpeedButton();
+        }, 300);
+    }
 });
 
 observer.observe(document.body, {
     childList: true,
     subtree: true
 });
+
+// Tentar criar o botão quando o vídeo estiver pronto
+function initializeButton() {
+    const video = document.querySelector('video');
+    if (video) {
+        video.addEventListener('loadeddata', () => {
+            setTimeout(() => {
+                createSpeedButton();
+            }, 500);
+        }, { once: true });
+    }
+}
+
+// Tentar criar o botão após o carregamento completo da página
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            initializeButton();
+            createSpeedButton();
+        }, 1000);
+    });
+} else {
+    setTimeout(() => {
+        initializeButton();
+        createSpeedButton();
+    }, 1000);
+}
+
+// Monitorar mudanças de navegação do YouTube (SPA)
+let lastUrl = location.href;
+new MutationObserver(() => {
+    const url = location.href;
+    if (url !== lastUrl) {
+        lastUrl = url;
+        buttonAttempts = 0; // Reset contador ao navegar
+        setTimeout(() => {
+            createSpeedButton();
+        }, 1500);
+    }
+}).observe(document.body, { childList: true, subtree: true });

@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Controle de Velocidade YouTube",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Adiciona um botão ao player do YouTube para controlar a velocidade do vídeo com o scroll do mouse.",
   "permissions": [
     "storage"
   ],
   "content_scripts": [
     {
-      "matches": ["https://www.youtube.com/watch*"],
+      "matches": ["https://www.youtube.com/*"],
       "js": ["src/content.js"],
       "css": ["src/styles.css"]
     }
